@@ -1,0 +1,36 @@
+import java.util.*;
+public class graph_Main
+{
+	  public static void main(String args[])
+	  {
+		  Graph g=new Graph();
+		  Scanner ss=new Scanner(System.in);
+		  int count=0;
+		  while(true)
+		  {
+			  System.out.println("Enter vertex label[z to stop]: ");
+			  char ch =ss.next().charAt(0);
+			  if(ch=='z')
+				  break;
+			  g.addVertex(ch);
+			  count++;
+		  }
+		  for(int i=0;i<count;i++)
+		  {
+			  int j;
+			  System.out.print("Enter edges of[-1 to stop]: ");
+			  g.display(i);
+			  while(true)
+			  {
+			   j=ss.nextInt();
+			  if(j==-1)
+				  break;
+			  }
+			  if(j!=-1)
+			  g.addEdge(i,j);
+		  }
+		  System.out.println("traverse Edges are: \n");
+		  g.DFS();
+	  }
+
+}

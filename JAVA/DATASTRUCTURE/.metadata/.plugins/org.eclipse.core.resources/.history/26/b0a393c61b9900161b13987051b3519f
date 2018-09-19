@@ -1,0 +1,62 @@
+import java.util.*;
+import java.util.Stack;
+
+public class Graph 
+{
+        public final int  maxV=20;
+        int vcount;
+        Vertex vList[];
+        int adjMatrix[][];
+        Stack stack;
+        public Graph()
+        {
+        	vList=new Vertex[maxV];
+        	vcount=0;
+            adjMatrix=new int[maxV][maxV];
+            stack=new Stack();
+        }
+        public void addVertex(char lab)
+        {
+        	vList[vcount++]=new Vertex(lab);
+        	
+        }
+        public void addEdge(int i,int j)
+        {
+            adjMatrix[i][j]=1;
+            adjMatrix[j][i]=1;
+            
+        }
+        public void display(int v)
+        {
+        	System.out.print(vList[v].label+" ");
+        }
+        public int get_Vertex(int v)
+        {
+        	for(int j=0;j<vcount;j++)
+        		if(adjMatrix[v][j]==1&&vList[j].visited==false)
+        			return j;
+        	return -1;
+        }
+        public void DFS()
+        {
+        	vList[0].visited=true;
+        	display(0);
+        	stack.push(0);
+        	while(!stack.isEmpty())
+        	{
+        		int v=get_Vertex(stack.peek());
+        		if(v==-1)
+        			stack.pop();
+        		else
+        		{
+        			vList[v].visited=true;
+        			display(v);
+        			stack.push(v);
+        		}
+        		for(int j=0;j<vcount;j++)
+        		{
+        			vList[j].visited=false;
+        		}
+        	}
+        }
+}

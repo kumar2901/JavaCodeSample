@@ -1,0 +1,12 @@
+.text_edit {
+	width: 743px;
+	height: 395px;
+	resize: none;
+font-size:25px;
+-webkit-border-radius:10px;
+background-color: rgba(175, 189, 212,0.5);
+}
+
+#view_text {
+	width: 500px;
+}

@@ -1,0 +1,25 @@
+import java.util.*;
+public class graph_Main
+{
+	  public static void main(String args[])
+	  {
+		  Graph g=new Graph();
+		  Scanner ss=new Scanner(System.in);
+		  while(true)
+		  {
+			  System.out.println("Enter vertex label: ");
+			  char ch =ss.next().charAt(0);
+			  g.addVertex(ch);
+			  System.out.println("Enter edge(i,j) between vertices[-1 -1 to stop]: ");
+			  int i=ss.nextInt();
+			  int j=ss.nextInt();
+			  if(i==-1 &&j==-1)
+				  break;
+			  g.addEdge(i,j);
+			  
+		  }
+		  System.out.println("traverse Edges are: \n");
+		  g.DFS();
+	  }
+
+}
